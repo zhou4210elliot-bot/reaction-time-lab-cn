@@ -1,0 +1,1904 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>信息加工反应时实验</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="信息加工反应时实验" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;信息加工反应时实验&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, transparent);
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --red: light-dark(rgb(186 38 35), rgb(250 66 62));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: var(--border-radius-lg, 12.5px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+    [aria-pressed=&quot;true&quot;],
+    [aria-selected=&quot;true&quot;],
+    .is-selected
+  ) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;rt-lab-cn-v2&quot;&gt;
+  &lt;style&gt;
+    #rt-lab-cn-v2 {
+      color: var(--foreground);
+      width: 100%;
+    }
+
+    #rt-lab-cn-v2 .rt-shell {
+      display: grid;
+      gap: 1rem;
+    }
+
+    #rt-lab-cn-v2 .rt-progress {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    #rt-lab-cn-v2 .rt-progress-step {
+      display: grid;
+      gap: 0.25rem;
+      color: var(--muted-foreground);
+      text-align: center;
+    }
+
+    #rt-lab-cn-v2 .rt-progress-step::before {
+      content: &quot;&quot;;
+      height: 0.25rem;
+      border-radius: 999px;
+      background: var(--muted);
+    }
+
+    #rt-lab-cn-v2 .rt-progress-step.is-current {
+      color: var(--foreground);
+      font-weight: 500;
+    }
+
+    #rt-lab-cn-v2 .rt-progress-step.is-current::before,
+    #rt-lab-cn-v2 .rt-progress-step.is-done::before {
+      background: var(--viz-series-1);
+    }
+
+    #rt-lab-cn-v2 .rt-screen {
+      display: none;
+    }
+
+    #rt-lab-cn-v2 .rt-screen.is-active {
+      display: grid;
+      gap: 1rem;
+    }
+
+    #rt-lab-cn-v2 .rt-intro-copy,
+    #rt-lab-cn-v2 .rt-note,
+    #rt-lab-cn-v2 .rt-phase-copy {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    #rt-lab-cn-v2 .rt-list {
+      margin: 0;
+      padding-inline-start: 1.25rem;
+    }
+
+    #rt-lab-cn-v2 .rt-list li + li {
+      margin-top: 0.4rem;
+    }
+
+    #rt-lab-cn-v2 .rt-phase-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    #rt-lab-cn-v2 .rt-phase-head h2,
+    #rt-lab-cn-v2 .rt-phase-head p,
+    #rt-lab-cn-v2 .rt-intro-copy p,
+    #rt-lab-cn-v2 .rt-note p {
+      margin: 0;
+    }
+
+    #rt-lab-cn-v2 .rt-stage-labels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      color: var(--muted-foreground);
+    }
+
+    #rt-lab-cn-v2 .rt-stage-labels .is-active {
+      color: var(--foreground);
+      font-weight: 500;
+    }
+
+    #rt-lab-cn-v2 .rt-stage-labels span:not(:last-child)::after {
+      content: &quot; →&quot;;
+      color: var(--muted-foreground);
+      font-weight: 400;
+    }
+
+    #rt-lab-cn-v2 .rt-arena {
+      min-height: 32rem;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+
+    #rt-lab-cn-v2 .rt-status {
+      min-height: 1.5rem;
+      color: var(--muted-foreground);
+    }
+
+    #rt-lab-cn-v2 .rt-status.is-good {
+      color: var(--foreground);
+      font-weight: 500;
+    }
+
+    #rt-lab-cn-v2 .rt-status.is-error {
+      color: var(--destructive);
+      font-weight: 500;
+    }
+
+    #rt-lab-cn-v2 .rt-stimulus {
+      width: clamp(10rem, 30vw, 14rem);
+      height: clamp(10rem, 30vw, 14rem);
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--muted);
+      color: var(--muted-foreground);
+      font-size: calc(var(--font-size-base) * 4);
+      font-weight: 500;
+      transition: background-color 120ms ease, color 120ms ease, transform 120ms ease;
+      user-select: none;
+    }
+
+    #rt-lab-cn-v2 .rt-stimulus.is-ready {
+      background: color-mix(in srgb, var(--viz-series-1) 24%, var(--card));
+      color: var(--foreground);
+      transform: scale(1.04);
+    }
+
+    #rt-lab-cn-v2 .rt-stimulus.is-circle {
+      background: color-mix(in srgb, var(--viz-series-1) 30%, var(--card));
+      color: var(--foreground);
+    }
+
+    #rt-lab-cn-v2 .rt-stimulus.is-triangle {
+      background: color-mix(in srgb, var(--viz-series-2) 30%, var(--card));
+      color: var(--foreground);
+    }
+
+    #rt-lab-cn-v2 .rt-stimulus.is-arrow {
+      background: color-mix(in srgb, var(--viz-series-3) 26%, var(--card));
+      color: var(--foreground);
+      border-radius: 1.25rem;
+    }
+
+    #rt-lab-cn-v2 .rt-response-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    #rt-lab-cn-v2 .rt-four-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(5rem, 8rem));
+      grid-template-areas:
+        &quot;. up .&quot;
+        &quot;left down right&quot;;
+      gap: 0.65rem;
+      justify-content: center;
+    }
+
+    #rt-lab-cn-v2 .rt-dir-up { grid-area: up; }
+    #rt-lab-cn-v2 .rt-dir-left { grid-area: left; }
+    #rt-lab-cn-v2 .rt-dir-down { grid-area: down; }
+    #rt-lab-cn-v2 .rt-dir-right { grid-area: right; }
+
+    #rt-lab-cn-v2 .rt-key {
+      color: var(--muted-foreground);
+      white-space: nowrap;
+    }
+
+    #rt-lab-cn-v2 .rt-results-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    #rt-lab-cn-v2 .rt-bars {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    #rt-lab-cn-v2 .rt-bar-row {
+      display: grid;
+      grid-template-columns: minmax(7rem, 10rem) 1fr minmax(4.5rem, auto);
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    #rt-lab-cn-v2 .rt-bar-track {
+      height: 1rem;
+      border-radius: 999px;
+      background: var(--muted);
+      overflow: hidden;
+    }
+
+    #rt-lab-cn-v2 .rt-bar-fill {
+      display: block;
+      height: 100%;
+      min-width: 0.2rem;
+      border-radius: inherit;
+      background: var(--viz-series-1);
+    }
+
+    #rt-lab-cn-v2 .rt-bar-row:nth-child(2) .rt-bar-fill {
+      background: var(--viz-series-2);
+    }
+
+    #rt-lab-cn-v2 .rt-bar-row:nth-child(3) .rt-bar-fill {
+      background: var(--viz-series-3);
+    }
+
+    #rt-lab-cn-v2 .rt-bar-value {
+      text-align: end;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    #rt-lab-cn-v2 .rt-equation {
+      display: grid;
+      gap: 0.5rem;
+      color: var(--muted-foreground);
+    }
+
+    #rt-lab-cn-v2 .rt-equation strong {
+      color: var(--foreground);
+      font-weight: 500;
+    }
+
+    @media (max-width: 560px) {
+      #rt-lab-cn-v2 .rt-progress-step span {
+        display: none;
+      }
+
+      #rt-lab-cn-v2 .rt-arena {
+        min-height: 31rem;
+      }
+
+      #rt-lab-cn-v2 .rt-four-grid {
+        grid-template-columns: repeat(3, minmax(4.25rem, 1fr));
+        width: 100%;
+      }
+
+      #rt-lab-cn-v2 .rt-bar-row {
+        grid-template-columns: 1fr auto;
+      }
+
+      #rt-lab-cn-v2 .rt-bar-track {
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #rt-lab-cn-v2 .rt-stimulus {
+        transition: none;
+      }
+    }
+  &lt;/style&gt;
+
+  &lt;div class=&quot;rt-shell&quot;&gt;
+    &lt;div class=&quot;rt-progress&quot; aria-label=&quot;实验进度&quot;&gt;
+      &lt;div class=&quot;rt-progress-step is-current&quot; data-progress=&quot;0&quot;&gt;&lt;span&gt;说明&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;rt-progress-step&quot; data-progress=&quot;1&quot;&gt;&lt;span&gt;简单反应&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;rt-progress-step&quot; data-progress=&quot;2&quot;&gt;&lt;span&gt;二选反应&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;rt-progress-step&quot; data-progress=&quot;3&quot;&gt;&lt;span&gt;四选反应&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;section class=&quot;rt-screen is-active&quot; data-screen=&quot;intro&quot;&gt;
+      &lt;div class=&quot;rt-intro-copy&quot;&gt;
+        &lt;p&gt;本实验比较刺激出现后，从“看到”到“作出动作”所需的时间。全程约3分钟。&lt;/p&gt;
+        &lt;ul class=&quot;rt-list&quot;&gt;
+          &lt;li&gt;每一阶段先练习3次，再进行10次正式测试。&lt;/li&gt;
+          &lt;li&gt;请把手指放在反应键附近，刺激出现后尽快作答。&lt;/li&gt;
+          &lt;li&gt;过早反应不会计入成绩；错误和超时会单独记录。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;rt-note text-small text-muted&quot;&gt;
+        &lt;p&gt;手机可直接点按按钮；电脑也可使用空格键、F/J键和方向键。本实验仅用于教学演示，不用于临床测评。&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;viz-controls&quot;&gt;
+        &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-action=&quot;start&quot;&gt;开始实验&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;rt-screen&quot; data-screen=&quot;phase&quot;&gt;
+      &lt;div class=&quot;rt-phase-head&quot;&gt;
+        &lt;div class=&quot;rt-phase-copy&quot;&gt;
+          &lt;h2 data-phase-title&gt;简单反应&lt;/h2&gt;
+          &lt;p class=&quot;text-muted&quot; data-phase-instruction&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;span class=&quot;viz-badge&quot; data-trial-progress&gt;练习 1/3&lt;/span&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;rt-stage-labels&quot; aria-label=&quot;当前信息加工阶段&quot;&gt;
+        &lt;span data-stage-label=&quot;input&quot;&gt;信息输入&lt;/span&gt;
+        &lt;span data-stage-label=&quot;identify&quot;&gt;刺激辨认&lt;/span&gt;
+        &lt;span data-stage-label=&quot;select&quot;&gt;反应选择&lt;/span&gt;
+        &lt;span data-stage-label=&quot;output&quot;&gt;动作输出&lt;/span&gt;
+        &lt;span data-stage-label=&quot;feedback&quot;&gt;结果反馈&lt;/span&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;card rt-arena&quot; data-arena&gt;
+        &lt;div class=&quot;rt-status&quot; role=&quot;status&quot; aria-live=&quot;polite&quot; data-status&gt;准备后请点击“开始本阶段”&lt;/div&gt;
+        &lt;div class=&quot;rt-stimulus&quot; data-stimulus aria-label=&quot;等待刺激&quot;&gt;·&lt;/div&gt;
+
+        &lt;div class=&quot;rt-response-row&quot; data-response-simple&gt;
+          &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-response=&quot;simple&quot;&gt;立即反应&lt;/button&gt;
+          &lt;span class=&quot;rt-key text-small&quot;&gt;电脑：空格键&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;rt-response-row&quot; data-response-two hidden&gt;
+          &lt;button class=&quot;btn&quot; type=&quot;button&quot; data-response=&quot;circle&quot;&gt;圆形&lt;/button&gt;
+          &lt;button class=&quot;btn&quot; type=&quot;button&quot; data-response=&quot;triangle&quot;&gt;三角形&lt;/button&gt;
+          &lt;span class=&quot;rt-key text-small&quot;&gt;电脑：F / J&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;rt-four-grid&quot; data-response-four hidden&gt;
+          &lt;button class=&quot;btn rt-dir-up&quot; type=&quot;button&quot; data-response=&quot;up&quot;&gt;↑ 上&lt;/button&gt;
+          &lt;button class=&quot;btn rt-dir-left&quot; type=&quot;button&quot; data-response=&quot;left&quot;&gt;← 左&lt;/button&gt;
+          &lt;button class=&quot;btn rt-dir-down&quot; type=&quot;button&quot; data-response=&quot;down&quot;&gt;↓ 下&lt;/button&gt;
+          &lt;button class=&quot;btn rt-dir-right&quot; type=&quot;button&quot; data-response=&quot;right&quot;&gt;→ 右&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-action=&quot;begin-phase&quot;&gt;开始本阶段&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;rt-screen&quot; data-screen=&quot;results&quot;&gt;
+      &lt;div class=&quot;rt-results-grid&quot;&gt;
+        &lt;div class=&quot;viz-grid&quot;&gt;
+          &lt;div class=&quot;card viz-stat&quot;&gt;
+            &lt;span class=&quot;text-muted&quot;&gt;简单反应中位数&lt;/span&gt;
+            &lt;span class=&quot;viz-stat-value&quot; data-result-simple&gt;—&lt;/span&gt;
+            &lt;span class=&quot;text-small text-muted&quot; data-accuracy-simple&gt;正确率 —&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;card viz-stat&quot;&gt;
+            &lt;span class=&quot;text-muted&quot;&gt;二选反应中位数&lt;/span&gt;
+            &lt;span class=&quot;viz-stat-value&quot; data-result-two&gt;—&lt;/span&gt;
+            &lt;span class=&quot;text-small text-muted&quot; data-accuracy-two&gt;正确率 —&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;card viz-stat&quot;&gt;
+            &lt;span class=&quot;text-muted&quot;&gt;四选反应中位数&lt;/span&gt;
+            &lt;span class=&quot;viz-stat-value&quot; data-result-four&gt;—&lt;/span&gt;
+            &lt;span class=&quot;text-small text-muted&quot; data-accuracy-four&gt;正确率 —&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;rt-bars&quot; role=&quot;img&quot; data-chart aria-label=&quot;三个阶段反应时间的比较&quot;&gt;
+          &lt;div class=&quot;rt-bar-row&quot;&gt;
+            &lt;span&gt;简单反应&lt;/span&gt;
+            &lt;span class=&quot;rt-bar-track&quot;&gt;&lt;span class=&quot;rt-bar-fill&quot; data-bar=&quot;simple&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;rt-bar-value&quot; data-bar-value=&quot;simple&quot;&gt;—&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;rt-bar-row&quot;&gt;
+            &lt;span&gt;二选反应&lt;/span&gt;
+            &lt;span class=&quot;rt-bar-track&quot;&gt;&lt;span class=&quot;rt-bar-fill&quot; data-bar=&quot;two&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;rt-bar-value&quot; data-bar-value=&quot;two&quot;&gt;—&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;rt-bar-row&quot;&gt;
+            &lt;span&gt;四选反应&lt;/span&gt;
+            &lt;span class=&quot;rt-bar-track&quot;&gt;&lt;span class=&quot;rt-bar-fill&quot; data-bar=&quot;four&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;rt-bar-value&quot; data-bar-value=&quot;four&quot;&gt;—&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;rt-equation&quot;&gt;
+          &lt;span&gt;二选加工增量：&lt;strong data-cost-two&gt;—&lt;/strong&gt;&lt;/span&gt;
+          &lt;span&gt;四选加工增量：&lt;strong data-cost-four&gt;—&lt;/strong&gt;&lt;/span&gt;
+          &lt;span data-conclusion&gt;&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;rt-note text-small text-muted&quot;&gt;
+          &lt;p&gt;加工增量为“选择反应中位数－简单反应中位数”，可近似反映刺激辨认和反应选择带来的时间成本。设备、浏览器和触控延迟会影响绝对数值。&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;viz-controls&quot;&gt;
+          &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-action=&quot;restart&quot;&gt;重新测试&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    (() =&gt; {
+      const root = document.getElementById(&#x27;rt-lab-cn-v2&#x27;);
+      if (!root || root.dataset.ready === &#x27;true&#x27;) return;
+      root.dataset.ready = &#x27;true&#x27;;
+
+      const PRACTICE_TRIALS = 3;
+      const FORMAL_TRIALS = 10;
+      const RESPONSE_LIMIT = 1800;
+      const phases = [
+        {
+          id: &#x27;simple&#x27;,
+          title: &#x27;第一阶段：简单反应&#x27;,
+          instruction: &#x27;圆点变为绿色并出现“点”字后，立即点击“立即反应”。不要提前点击。&#x27;,
+          responses: [&#x27;simple&#x27;],
+          keys: { &#x27; &#x27;: &#x27;simple&#x27; }
+        },
+        {
+          id: &#x27;two&#x27;,
+          title: &#x27;第二阶段：二选反应&#x27;,
+          instruction: &#x27;看到圆形请选择“圆形”，看到三角形请选择“三角形”。电脑可按 F 或 J。&#x27;,
+          responses: [&#x27;circle&#x27;, &#x27;triangle&#x27;],
+          keys: { f: &#x27;circle&#x27;, j: &#x27;triangle&#x27; }
+        },
+        {
+          id: &#x27;four&#x27;,
+          title: &#x27;第三阶段：四选反应&#x27;,
+          instruction: &#x27;辨认箭头方向，并点击对应方向按钮。电脑可直接按方向键。&#x27;,
+          responses: [&#x27;up&#x27;, &#x27;down&#x27;, &#x27;left&#x27;, &#x27;right&#x27;],
+          keys: { ArrowUp: &#x27;up&#x27;, ArrowDown: &#x27;down&#x27;, ArrowLeft: &#x27;left&#x27;, ArrowRight: &#x27;right&#x27; }
+        }
+      ];
+
+      const screens = {
+        intro: root.querySelector(&#x27;[data-screen=&quot;intro&quot;]&#x27;),
+        phase: root.querySelector(&#x27;[data-screen=&quot;phase&quot;]&#x27;),
+        results: root.querySelector(&#x27;[data-screen=&quot;results&quot;]&#x27;)
+      };
+      const progress = [...root.querySelectorAll(&#x27;[data-progress]&#x27;)];
+      const stimulus = root.querySelector(&#x27;[data-stimulus]&#x27;);
+      const status = root.querySelector(&#x27;[data-status]&#x27;);
+      const beginPhaseButton = root.querySelector(&#x27;[data-action=&quot;begin-phase&quot;]&#x27;);
+      const phaseTitle = root.querySelector(&#x27;[data-phase-title]&#x27;);
+      const phaseInstruction = root.querySelector(&#x27;[data-phase-instruction]&#x27;);
+      const trialProgress = root.querySelector(&#x27;[data-trial-progress]&#x27;);
+      const responseGroups = {
+        simple: root.querySelector(&#x27;[data-response-simple]&#x27;),
+        two: root.querySelector(&#x27;[data-response-two]&#x27;),
+        four: root.querySelector(&#x27;[data-response-four]&#x27;)
+      };
+      const stageLabels = [...root.querySelectorAll(&#x27;[data-stage-label]&#x27;)];
+
+      let state = createState();
+      let waitTimer = null;
+      let responseTimer = null;
+
+      function createState() {
+        return {
+          phaseIndex: 0,
+          practiceIndex: 0,
+          formalIndex: 0,
+          mode: &#x27;idle&#x27;,
+          waiting: false,
+          active: false,
+          stimulusOnset: 0,
+          correctResponse: null,
+          results: {
+            simple: { times: [], correct: 0, total: 0, misses: 0 },
+            two: { times: [], correct: 0, total: 0, misses: 0 },
+            four: { times: [], correct: 0, total: 0, misses: 0 }
+          }
+        };
+      }
+
+      function clearTimers() {
+        window.clearTimeout(waitTimer);
+        window.clearTimeout(responseTimer);
+        waitTimer = null;
+        responseTimer = null;
+      }
+
+      function showScreen(name) {
+        Object.entries(screens).forEach(([key, screen]) =&gt; {
+          screen.classList.toggle(&#x27;is-active&#x27;, key === name);
+        });
+      }
+
+      function setProgress(index) {
+        progress.forEach((step, i) =&gt; {
+          step.classList.toggle(&#x27;is-current&#x27;, i === index);
+          step.classList.toggle(&#x27;is-done&#x27;, i &lt; index);
+        });
+      }
+
+      function setStatus(message, kind = &#x27;&#x27;) {
+        status.textContent = message;
+        status.classList.toggle(&#x27;is-good&#x27;, kind === &#x27;good&#x27;);
+        status.classList.toggle(&#x27;is-error&#x27;, kind === &#x27;error&#x27;);
+      }
+
+      function setActiveStage(name) {
+        const order = [&#x27;input&#x27;, &#x27;identify&#x27;, &#x27;select&#x27;, &#x27;output&#x27;, &#x27;feedback&#x27;];
+        const index = order.indexOf(name);
+        stageLabels.forEach((label, i) =&gt; {
+          label.classList.toggle(&#x27;is-active&#x27;, i === index);
+        });
+      }
+
+      function resetStimulus() {
+        stimulus.className = &#x27;rt-stimulus&#x27;;
+        stimulus.textContent = &#x27;·&#x27;;
+        stimulus.setAttribute(&#x27;aria-label&#x27;, &#x27;等待刺激&#x27;);
+      }
+
+      function updateTrialProgress() {
+        if (state.mode === &#x27;practice&#x27;) {
+          trialProgress.textContent = `练习 ${state.practiceIndex + 1}/${PRACTICE_TRIALS}`;
+        } else {
+          trialProgress.textContent = `正式 ${state.formalIndex + 1}/${FORMAL_TRIALS}`;
+        }
+      }
+
+      function preparePhase() {
+        clearTimers();
+        const phase = phases[state.phaseIndex];
+        showScreen(&#x27;phase&#x27;);
+        setProgress(state.phaseIndex + 1);
+        phaseTitle.textContent = phase.title;
+        phaseInstruction.textContent = phase.instruction;
+        Object.entries(responseGroups).forEach(([key, group]) =&gt; {
+          group.hidden = key !== phase.id;
+        });
+        state.mode = &#x27;idle&#x27;;
+        state.practiceIndex = 0;
+        state.formalIndex = 0;
+        state.waiting = false;
+        state.active = false;
+        resetStimulus();
+        setActiveStage(&#x27;&#x27;);
+        setStatus(&#x27;准备后请点击“开始本阶段”&#x27;);
+        beginPhaseButton.hidden = false;
+        trialProgress.textContent = &#x27;尚未开始&#x27;;
+      }
+
+      function beginPhase() {
+        beginPhaseButton.hidden = true;
+        state.mode = &#x27;practice&#x27;;
+        state.practiceIndex = 0;
+        state.formalIndex = 0;
+        startTrial();
+      }
+
+      function startTrial() {
+        clearTimers();
+        state.waiting = true;
+        state.active = false;
+        state.correctResponse = null;
+        resetStimulus();
+        updateTrialProgress();
+        setActiveStage(&#x27;&#x27;);
+        setStatus(&#x27;请等待刺激出现……&#x27;);
+        const delay = 900 + Math.random() * 1500;
+        waitTimer = window.setTimeout(showStimulus, delay);
+      }
+
+      function showStimulus() {
+        state.waiting = false;
+        state.active = true;
+        const phase = phases[state.phaseIndex];
+        const choice = phase.responses[Math.floor(Math.random() * phase.responses.length)];
+        state.correctResponse = choice;
+
+        if (phase.id === &#x27;simple&#x27;) {
+          stimulus.textContent = &#x27;点&#x27;;
+          stimulus.classList.add(&#x27;is-ready&#x27;);
+          stimulus.setAttribute(&#x27;aria-label&#x27;, &#x27;绿色反应刺激已出现&#x27;);
+        } else if (phase.id === &#x27;two&#x27;) {
+          if (choice === &#x27;circle&#x27;) {
+            stimulus.textContent = &#x27;●&#x27;;
+            stimulus.classList.add(&#x27;is-circle&#x27;);
+            stimulus.setAttribute(&#x27;aria-label&#x27;, &#x27;圆形刺激&#x27;);
+          } else {
+            stimulus.textContent = &#x27;▲&#x27;;
+            stimulus.classList.add(&#x27;is-triangle&#x27;);
+            stimulus.setAttribute(&#x27;aria-label&#x27;, &#x27;三角形刺激&#x27;);
+          }
+        } else {
+          const arrows = { up: &#x27;↑&#x27;, down: &#x27;↓&#x27;, left: &#x27;←&#x27;, right: &#x27;→&#x27; };
+          stimulus.textContent = arrows[choice];
+          stimulus.classList.add(&#x27;is-arrow&#x27;);
+          stimulus.setAttribute(&#x27;aria-label&#x27;, `${arrows[choice]}方向刺激`);
+        }
+
+        setActiveStage(&#x27;input&#x27;);
+        setStatus(&#x27;刺激已出现，请立即反应！&#x27;, &#x27;good&#x27;);
+        state.stimulusOnset = performance.now();
+        responseTimer = window.setTimeout(handleMiss, RESPONSE_LIMIT);
+      }
+
+      function handleResponse(response) {
+        if (screens.phase.classList.contains(&#x27;is-active&#x27;) === false || state.mode === &#x27;idle&#x27;) return;
+
+        if (state.waiting) {
+          clearTimers();
+          state.waiting = false;
+          setStatus(&#x27;反应过早，本次不计入次数。请等待刺激出现。&#x27;, &#x27;error&#x27;);
+          resetStimulus();
+          window.setTimeout(startTrial, 900);
+          return;
+        }
+
+        if (!state.active) return;
+        clearTimers();
+        state.active = false;
+        const rt = Math.round(performance.now() - state.stimulusOnset);
+        const correct = response === state.correctResponse;
+        const phase = phases[state.phaseIndex];
+
+        setActiveStage(correct ? &#x27;output&#x27; : &#x27;select&#x27;);
+        if (state.mode === &#x27;formal&#x27;) {
+          const bucket = state.results[phase.id];
+          bucket.total += 1;
+          if (correct) {
+            bucket.correct += 1;
+            bucket.times.push(rt);
+          }
+        }
+
+        if (correct) {
+          setStatus(`正确，反应时间 ${rt} 毫秒`, &#x27;good&#x27;);
+        } else {
+          setStatus(&#x27;选择错误，本次记录为错误反应。&#x27;, &#x27;error&#x27;);
+        }
+
+        window.setTimeout(() =&gt; {
+          setActiveStage(&#x27;feedback&#x27;);
+          advanceTrial();
+        }, 650);
+      }
+
+      function handleMiss() {
+        if (!state.active) return;
+        state.active = false;
+        const phase = phases[state.phaseIndex];
+        if (state.mode === &#x27;formal&#x27;) {
+          const bucket = state.results[phase.id];
+          bucket.total += 1;
+          bucket.misses += 1;
+        }
+        setActiveStage(&#x27;feedback&#x27;);
+        setStatus(&#x27;反应超时，本次记录为未反应。&#x27;, &#x27;error&#x27;);
+        window.setTimeout(advanceTrial, 750);
+      }
+
+      function advanceTrial() {
+        if (state.mode === &#x27;practice&#x27;) {
+          state.practiceIndex += 1;
+          if (state.practiceIndex &gt;= PRACTICE_TRIALS) {
+            state.mode = &#x27;formal&#x27;;
+            state.formalIndex = 0;
+            setStatus(&#x27;练习完成，正式测试即将开始。&#x27;, &#x27;good&#x27;);
+            resetStimulus();
+            window.setTimeout(startTrial, 1100);
+          } else {
+            startTrial();
+          }
+          return;
+        }
+
+        state.formalIndex += 1;
+        if (state.formalIndex &gt;= FORMAL_TRIALS) {
+          state.phaseIndex += 1;
+          if (state.phaseIndex &gt;= phases.length) {
+            showResults();
+          } else {
+            preparePhase();
+          }
+        } else {
+          startTrial();
+        }
+      }
+
+      function median(values) {
+        if (!values.length) return null;
+        const sorted = [...values].sort((a, b) =&gt; a - b);
+        const mid = Math.floor(sorted.length / 2);
+        return sorted.length % 2 ? sorted[mid] : Math.round((sorted[mid - 1] + sorted[mid]) / 2);
+      }
+
+      function accuracy(bucket) {
+        return bucket.total ? Math.round((bucket.correct / bucket.total) * 100) : 0;
+      }
+
+      function formatMs(value) {
+        return value === null ? &#x27;有效数据不足&#x27; : `${value} 毫秒`;
+      }
+
+      function showResults() {
+        clearTimers();
+        showScreen(&#x27;results&#x27;);
+        setProgress(4);
+        const values = {
+          simple: median(state.results.simple.times),
+          two: median(state.results.two.times),
+          four: median(state.results.four.times)
+        };
+
+        root.querySelector(&#x27;[data-result-simple]&#x27;).textContent = formatMs(values.simple);
+        root.querySelector(&#x27;[data-result-two]&#x27;).textContent = formatMs(values.two);
+        root.querySelector(&#x27;[data-result-four]&#x27;).textContent = formatMs(values.four);
+        root.querySelector(&#x27;[data-accuracy-simple]&#x27;).textContent = `正确率 ${accuracy(state.results.simple)}%`;
+        root.querySelector(&#x27;[data-accuracy-two]&#x27;).textContent = `正确率 ${accuracy(state.results.two)}%`;
+        root.querySelector(&#x27;[data-accuracy-four]&#x27;).textContent = `正确率 ${accuracy(state.results.four)}%`;
+
+        const valid = Object.values(values).filter(value =&gt; value !== null);
+        const maximum = valid.length ? Math.max(...valid, 1) : 1;
+        Object.entries(values).forEach(([key, value]) =&gt; {
+          root.querySelector(`[data-bar=&quot;${key}&quot;]`).style.width = value === null ? &#x27;0%&#x27; : `${Math.max(4, (value / maximum) * 100)}%`;
+          root.querySelector(`[data-bar-value=&quot;${key}&quot;]`).textContent = formatMs(value);
+        });
+
+        const costTwo = values.simple !== null &amp;&amp; values.two !== null ? values.two - values.simple : null;
+        const costFour = values.simple !== null &amp;&amp; values.four !== null ? values.four - values.simple : null;
+        root.querySelector(&#x27;[data-cost-two]&#x27;).textContent = costTwo === null ? &#x27;有效数据不足&#x27; : `${costTwo &gt;= 0 ? &#x27;+&#x27; : &#x27;&#x27;}${costTwo} 毫秒`;
+        root.querySelector(&#x27;[data-cost-four]&#x27;).textContent = costFour === null ? &#x27;有效数据不足&#x27; : `${costFour &gt;= 0 ? &#x27;+&#x27; : &#x27;&#x27;}${costFour} 毫秒`;
+
+        let conclusion = &#x27;有效数据不足，请重新测试并尽量减少错误。&#x27;;
+        if (costTwo !== null &amp;&amp; costFour !== null) {
+          if (costTwo &gt; 0 &amp;&amp; costFour &gt;= costTwo) {
+            conclusion = &#x27;你的结果呈现了典型趋势：可选反应越多，刺激辨认与反应选择所需的时间通常越长。&#x27;;
+          } else {
+            conclusion = &#x27;你的结果没有呈现稳定递增趋势。练习、预期、偶然波动和设备延迟都可能影响一次短测的结果。&#x27;;
+          }
+        }
+        root.querySelector(&#x27;[data-conclusion]&#x27;).textContent = conclusion;
+        root.querySelector(&#x27;[data-chart]&#x27;).setAttribute(
+          &#x27;aria-label&#x27;,
+          `简单反应${formatMs(values.simple)}，二选反应${formatMs(values.two)}，四选反应${formatMs(values.four)}`
+        );
+      }
+
+      function restart() {
+        clearTimers();
+        state = createState();
+        showScreen(&#x27;intro&#x27;);
+        setProgress(0);
+        resetStimulus();
+      }
+
+      root.addEventListener(&#x27;click&#x27;, event =&gt; {
+        const action = event.target.closest(&#x27;[data-action]&#x27;)?.dataset.action;
+        if (action === &#x27;start&#x27;) {
+          state = createState();
+          preparePhase();
+          return;
+        }
+        if (action === &#x27;begin-phase&#x27;) {
+          beginPhase();
+          return;
+        }
+        if (action === &#x27;restart&#x27;) {
+          restart();
+          return;
+        }
+        const response = event.target.closest(&#x27;[data-response]&#x27;)?.dataset.response;
+        if (response) handleResponse(response);
+      });
+
+      window.addEventListener(&#x27;keydown&#x27;, event =&gt; {
+        if (!screens.phase.classList.contains(&#x27;is-active&#x27;)) return;
+        const phase = phases[state.phaseIndex];
+        if (!phase) return;
+        const key = event.key === &#x27; &#x27; ? &#x27; &#x27; : event.key;
+        const response = phase.keys[key] || phase.keys[key.toLowerCase?.()];
+        if (response) {
+          event.preventDefault();
+          handleResponse(response);
+        }
+      });
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>
